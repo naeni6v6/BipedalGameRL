@@ -1,47 +1,14 @@
 # BipedalGameRL 🦾
 
-> ⚠️ **Work in Progress** — This project is currently under active development.
+> ⚠️ Work in Progress — Currently under active development.
 
-## Project Overview
+## Overview
 
-End-to-end deep reinforcement learning project implementing **Proximal Policy Optimization (PPO)** to solve continuous control locomotion tasks in the OpenAI Gymnasium `BipedalWalkerHardcore-v3` environment.
+Deep reinforcement learning project training a bipedal agent to navigate complex terrain using **PPO (Proximal Policy Optimization)** in the `BipedalWalkerHardcore-v3` environment. Demonstrates end-to-end ML pipeline experience including training, evaluation, and model versioning.
 
-This project demonstrates practical experience in **policy gradient methods, reward engineering, hyperparameter tuning, and training pipeline construction** — core competencies for ML engineering roles.
+## Key Skills
 
-## Key Skills Demonstrated
-
-| Category | Detail |
-|----------|--------|
-| Reinforcement Learning | PPO, policy gradient, reward shaping |
-| Deep Learning | Actor-Critic architecture, MLP policy |
-| MLOps | Checkpoint management, model versioning, training pipeline |
-| Experiment Design | Curriculum learning, hyperparameter tuning |
-| Visualization | Training curve analysis, video recording |
-| Tools | PyTorch, Stable-Baselines3, Gymnasium, CUDA |
-
-## Environment
-
-| Item | Detail |
-|------|--------|
-| Base Environment | BipedalWalker-v3 (Gymnasium) |
-| Challenge Environment | BipedalWalkerHardcore-v3 |
-| Observation Space | 24-dimensional continuous state vector |
-| Action Space | 4-dimensional continuous joint torque control |
-| Hardware | NVIDIA RTX 3060 (CUDA acceleration) |
-
-## Approach
-
-Rather than directly training on the hardcore environment, this project adopts a **curriculum learning strategy** — first establishing a stable baseline policy on the standard environment, then transferring and fine-tuning on the obstacle-rich hardcore variant. This approach reflects real-world ML practices where progressive task complexity leads to more robust model generalization.
-
-## Hyperparameters
-
-| Parameter | Value | Rationale |
-|-----------|-------|-----------|
-| learning_rate | 0.0001 | Conservative update for stable hardcore training |
-| n_steps | 4096 | Larger rollout buffer for complex environment |
-| batch_size | 256 | Balanced memory efficiency and gradient stability |
-| gamma | 0.99 | Long-horizon reward consideration |
-| device | CUDA | GPU-accelerated training via RTX 3060 |
+`Reinforcement Learning` `PPO` `Actor-Critic` `Hyperparameter Tuning` `MLOps` `CUDA` `Stable-Baselines3` `Gymnasium` `PyTorch` `Git`
 
 ## Training Progress
 
@@ -52,27 +19,11 @@ Rather than directly training on the hardcore environment, this project adopts a
 | Hardcore Phase 2 | 5M | -35 | ✅ Complete |
 | Hardcore Phase 3 | 10M | TBD | 🔄 In Progress |
 
-> ep_rew_mean improved from -62 → -35 between 3M and 5M steps, confirming stable policy convergence.
-
-## Repository Structure
-
-    BipedalGameRL/
-    ├── bipedal_walker.py     # Custom rendering environment
-    ├── train.py              # Baseline training pipeline
-    ├── train_hardcord.py     # Hardcore training pipeline with Monitor & checkpoint
-    ├── test.py               # Policy evaluation & automated video recording
-    └── models/               # Versioned policy checkpoints (per 100K steps)
-
 ## Current Status
 
-- [x] Baseline policy training & evaluation (1M steps, ep_rew_mean: +216)
-- [x] Hardcore environment setup with Monitor wrapper
-- [x] Hardcore policy training (5M steps, ep_rew_mean: -35)
-- [x] Automated video recording pipeline (RecordVideo wrapper)
+- [x] Baseline policy training (1M steps, ep_rew_mean: +216)
+- [x] Hardcore training with curriculum learning strategy (5M steps)
+- [x] Automated video recording pipeline
 - [ ] Extended training (10M steps)
-- [ ] Training curve visualization (ep_rew_mean, explained_variance)
-- [ ] Final performance analysis & documentation
-
-## Tech Stack
-
-`Python` `PyTorch` `Stable-Baselines3` `Gymnasium` `Box2D` `CUDA` `Git`
+- [ ] Training curve visualization
+- [ ] Final documentation
