@@ -55,3 +55,24 @@ Rather than directly training on the hardcore environment, this project adopts a
 > ep_rew_mean improved from -62 → -35 between 3M and 5M steps, confirming stable policy convergence.
 
 ## Repository Structure
+
+    BipedalGameRL/
+    ├── bipedal_walker.py     # Custom rendering environment
+    ├── train.py              # Baseline training pipeline
+    ├── train_hardcord.py     # Hardcore training pipeline with Monitor & checkpoint
+    ├── test.py               # Policy evaluation & automated video recording
+    └── models/               # Versioned policy checkpoints (per 100K steps)
+
+## Current Status
+
+- [x] Baseline policy training & evaluation (1M steps, ep_rew_mean: +216)
+- [x] Hardcore environment setup with Monitor wrapper
+- [x] Hardcore policy training (5M steps, ep_rew_mean: -35)
+- [x] Automated video recording pipeline (RecordVideo wrapper)
+- [ ] Extended training (10M steps)
+- [ ] Training curve visualization (ep_rew_mean, explained_variance)
+- [ ] Final performance analysis & documentation
+
+## Tech Stack
+
+`Python` `PyTorch` `Stable-Baselines3` `Gymnasium` `Box2D` `CUDA` `Git`
