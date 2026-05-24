@@ -2,21 +2,22 @@
 
 > ⚠️ **Work in Progress** — This project is currently under active development.
 
----
-
 ## Project Overview
 
-A reinforcement learning project where an AI agent learns to walk and overcome obstacles in the BipedalWalker environment, themed around a college student commuting to a 9AM class at Korea University Sejong Campus.
+End-to-end deep reinforcement learning project implementing **Proximal Policy Optimization (PPO)** to solve continuous control locomotion tasks in the OpenAI Gymnasium `BipedalWalkerHardcore-v3` environment.
 
----
+This project demonstrates practical experience in **policy gradient methods, reward engineering, hyperparameter tuning, and training pipeline construction** — core competencies for ML engineering roles.
 
-## Concept
+## Key Skills Demonstrated
 
-> "A university student robot trying to make it to 1st period class"
-
-The agent starts by learning basic locomotion, then progressively tackles harder terrain — mirroring the struggle of waking up early for morning classes.
-
----
+| Category | Detail |
+|----------|--------|
+| Reinforcement Learning | PPO, policy gradient, reward shaping |
+| Deep Learning | Actor-Critic architecture, MLP policy |
+| MLOps | Checkpoint management, model versioning, training pipeline |
+| Experiment Design | Curriculum learning, hyperparameter tuning |
+| Visualization | Training curve analysis, video recording |
+| Tools | PyTorch, Stable-Baselines3, Gymnasium, CUDA |
 
 ## Environment
 
@@ -24,44 +25,33 @@ The agent starts by learning basic locomotion, then progressively tackles harder
 |------|--------|
 | Base Environment | BipedalWalker-v3 (Gymnasium) |
 | Challenge Environment | BipedalWalkerHardcore-v3 |
-| Algorithm | PPO (Proximal Policy Optimization) |
-| Library | Stable-Baselines3 |
-| Hardware | NVIDIA RTX 3060 |
+| Observation Space | 24-dimensional continuous state vector |
+| Action Space | 4-dimensional continuous joint torque control |
+| Hardware | NVIDIA RTX 3060 (CUDA acceleration) |
 
----
+## Approach
+
+Rather than directly training on the hardcore environment, this project adopts a **curriculum learning strategy** — first establishing a stable baseline policy on the standard environment, then transferring and fine-tuning on the obstacle-rich hardcore variant. This approach reflects real-world ML practices where progressive task complexity leads to more robust model generalization.
+
+## Hyperparameters
+
+| Parameter | Value | Rationale |
+|-----------|-------|-----------|
+| learning_rate | 0.0001 | Conservative update for stable hardcore training |
+| n_steps | 4096 | Larger rollout buffer for complex environment |
+| batch_size | 256 | Balanced memory efficiency and gradient stability |
+| gamma | 0.99 | Long-horizon reward consideration |
+| device | CUDA | GPU-accelerated training via RTX 3060 |
 
 ## Training Progress
 
 | Stage | Steps | ep_rew_mean | Status |
 |-------|-------|-------------|--------|
-| Basic Walker | 1M | +216 | ✅ Complete |
-| Hardcore | 3M | -62 | ✅ Complete |
-| Hardcore | 5M | -35 | ✅ Complete |
-| Hardcore | 10M | TBD | 🔄 Planned |
+| Baseline (BipedalWalker) | 1M | +216 | ✅ Complete |
+| Hardcore Phase 1 | 3M | -62 | ✅ Complete |
+| Hardcore Phase 2 | 5M | -35 | ✅ Complete |
+| Hardcore Phase 3 | 10M | TBD | 🔄 In Progress |
 
----
+> ep_rew_mean improved from -62 → -35 between 3M and 5M steps, confirming stable policy convergence.
 
-## Presentation Roadmap
-
-| Presentation | Environment | Goal |
-|-------------|-------------|------|
-| 1st | Basic BipedalWalker | Verify basic locomotion |
-| 2nd | Hardcore (first attempt) | Analyze failure on obstacles |
-| Final | Hardcore (improved) + Custom Map | Complete campus-themed agent |
-
----
-
-## Custom Map (Planned)
-
-Korea University Sejong Campus theme:
-
-| Element | Role |
-|---------|------|
-| Sinjeong Gate | Starting point |
-| Campus road | Middle path |
-| KU Flag | Landmark |
-| Public Policy Hall | Final destination |
-
----
-
-## File Structure
+## Repository Structure
