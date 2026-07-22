@@ -1,18 +1,21 @@
 # 🦾 Training a Bipedal Agent with PPO on Hardcore Terrain
 
-
 ![demo](demo.gif)
 
 <sub>Final model (Phase 8) · seed 103335 · score 289/300 · 1.75× speed</sub>
 
-## Overview
+<br>
+
+## 📌 Overview
 
 A deep reinforcement learning project training a bipedal agent to navigate randomized hardcore terrain using **PPO (Proximal Policy Optimization)**.
 Goes beyond running a script — includes failure analysis, evaluation methodology, and targeted fine-tuning across 8 training phases.
 
 Framed as a story: a student racing across campus to make a 9 AM class, rendered on a custom map (Sinjeong Gate → Public Policy building).
 
-## Training Phases
+<br>
+
+## 📈 Training Phases
 
 | # | Env | Steps | Result | Note |
 |---|---|---|---|---|
@@ -27,7 +30,9 @@ Framed as a story: a student racing across campus to make a 9 AM class, rendered
 
 > Honest 50-episode baseline: **-17.53** → Final: **+64.32**
 
-## Key Engineering Insights
+<br>
+
+## 💡 Key Engineering Insights
 
 **Evaluation reliability**
 10-episode peak (+46.23) collapsed to -17.53 on 50-episode re-validation. All phase comparisons standardized to 50-episode deterministic averages. Related: `ep_rew_mean` includes exploration noise and under-reports true performance by ~20 pts — `eval/mean_reward` is the real metric.
@@ -44,7 +49,9 @@ Checkpoint-level analysis of `evaluations.npz` identified 11.6M as the true peak
 **VecNormalize must stay paired**
 A mismatched `best_model.zip` / `vecnormalize.pkl` pair drops scores to -128. A custom `SaveVecNormalizeOnBest` callback saves both atomically on every new best.
 
-## Weakness Analysis & Fix
+<br>
+
+## 🔍 Weakness Analysis & Fix
 
 Two symptoms — the agent kept failing at **stumps**, and per-episode variance was enormous — turned out to be one problem: a single -100 fall wipes out an otherwise good run, so the weakness *is* the variance. Quantified it by biasing terrain generation:
 
@@ -61,7 +68,9 @@ Phase 8 fine-tuned from the pre-degradation checkpoint (11.6M) with elevated stu
 | Stump fine-tuned | +64.32 | **+25.28** |
 | Δ | -2.57 (within noise) | **+15.01 (+146%)** |
 
-## Results
+<br>
+
+## 🏁 Results
 
 | Metric | Value |
 |---|---|
@@ -71,24 +80,31 @@ Phase 8 fine-tuned from the pre-degradation checkpoint (11.6M) with elevated stu
 
 Completion runs were harvested automatically: a two-pass seed scanner scores episodes without encoding, then re-renders only seeds that clear both the score threshold and full obstacle coverage (STUMP + STAIRS + PIT).
 
-## Custom Rendering
+<br>
+
+## 🎨 Custom Rendering
 
 The final policy is visualized on a themed campus map — custom PyGame render layer in `bipedal_walker.py` with hand-made sprites, a running clock counting up to 9:00 AM, and speech bubbles at start and finish. Rendering only: training always used the unmodified `BipedalWalker-v3 (hardcore=True)` to avoid environment mismatch.
 
-![art_design](art_design.png)
+[![art_design](art_design.png)](art_design.png)
 
 <sub>Asset design guide — campus landmarks redrawn as flat 2D side-view sprites to match the BipedalWalker-v3 visual language.</sub>
-The final policy is visualized on a themed campus map — custom PyGame render layer in `bipedal_walker.py` with hand-made sprites, a running clock counting up to 9:00 AM, and speech bubbles at start and finish. Rendering only: training always used the unmodified `BipedalWalker-v3 (hardcore=True)` to avoid environment mismatch.
 
-## Tech Stack
+<br>
+
+## 🛠 Tech Stack
 
 Python, PyTorch, Stable-Baselines3, Gymnasium (Box2D), PyGame
 PPO, Curriculum Learning, SubprocVecEnv, VecNormalize, EvalCallback
 
-## Limitations & Future Work
+<br>
+
+## 🚧 Limitations & Future Work
 
 High episode-level variance is inherent to randomized hardcore terrain (std ~105).
 Future work: selecting checkpoints by mean − std rather than mean, extending targeted fine-tuning to stairs/pits, ensemble checkpoints, SAC/TD3 comparison.
+
+<br>
 
 ---
 
