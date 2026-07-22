@@ -76,6 +76,7 @@ Completion runs were harvested automatically: a two-pass seed scanner scores epi
 The final policy is visualized on a themed campus map — custom PyGame render layer in `bipedal_walker.py` with hand-made sprites, a running clock counting up to 9:00 AM, and speech bubbles at start and finish. Rendering only: training always used the unmodified `BipedalWalker-v3 (hardcore=True)` to avoid environment mismatch.
 
 ![art_design](art_design.png)
+
 <sub>Asset design guide — campus landmarks redrawn as flat 2D side-view sprites to match the BipedalWalker-v3 visual language.</sub>
 The final policy is visualized on a themed campus map — custom PyGame render layer in `bipedal_walker.py` with hand-made sprites, a running clock counting up to 9:00 AM, and speech bubbles at start and finish. Rendering only: training always used the unmodified `BipedalWalker-v3 (hardcore=True)` to avoid environment mismatch.
 
