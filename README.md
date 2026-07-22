@@ -1,6 +1,8 @@
 # 🦾 Training a Bipedal Agent with PPO on Hardcore Terrain
 
+
 ![demo](demo.gif)
+
 <sub>Final model (Phase 8) · seed 103335 · score 289/300 · 1.75× speed</sub>
 
 ## Overview
