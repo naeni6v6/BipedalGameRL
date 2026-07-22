@@ -1,8 +1,10 @@
 # 🦾 Training a Bipedal Agent with PPO on Hardcore Terrain
 
-![demo](assets/demo.gif)
-<sub>Final model (Phase 8) · seed 103335 · score 289 · 1.75× speed</sub>
+![demo](demo.gif)
+<sub>Final model (Phase 8) · seed 103335 · score 289/300 · 1.75× speed</sub>
+
 ## Overview
+
 A deep reinforcement learning project training a bipedal agent to navigate randomized hardcore terrain using **PPO (Proximal Policy Optimization)**.
 Goes beyond running a script — includes failure analysis, evaluation methodology, and targeted fine-tuning across 8 training phases.
 
