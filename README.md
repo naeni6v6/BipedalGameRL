@@ -1,5 +1,5 @@
 # 🦾 Training a Bipedal Agent with PPO on Hardcore Terrain
-<h1 align="center">🦾 Bipedal Agent · PPO on Hardcore Terrain</h1>
+<h1 align="center">
 <p align="center">
   <img src="https://img.shields.io/badge/Algorithm-PPO-0066CC?style=for-the-badge" alt="PPO">
   <img src="https://img.shields.io/badge/Best_Episode-292.3%2F300-success?style=for-the-badge" alt="Best 292.3">
