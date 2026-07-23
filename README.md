@@ -14,7 +14,8 @@
   <img src="https://img.shields.io/badge/steps-20M-lightgrey" alt="20M steps">
 </p>
 <p align="center">
-  Training a bipedal agent to clear randomized hardcore terrain — across 8 training phases with failure analysis, evaluation methodology, and targeted fine-tuning.
+  Training a bipedal agent to clear randomized hardcore terrain — 
+  across 8 training phases with failure analysis, evaluation methodology, and targeted fine-tuning.
 </p>
 
 <p align="center">
