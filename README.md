@@ -1,4 +1,21 @@
 # 🦾 Training a Bipedal Agent with PPO on Hardcore Terrain
+<h1 align="center">🦾 Bipedal Agent · PPO on Hardcore Terrain</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/Algorithm-PPO-0066CC?style=for-the-badge" alt="PPO">
+  <img src="https://img.shields.io/badge/Best_Episode-292.3%2F300-success?style=for-the-badge" alt="Best 292.3">
+  <img src="https://img.shields.io/badge/Eval_Score-+64.32-success?style=for-the-badge" alt="Eval +64.32">
+  <img src="https://img.shields.io/badge/Grade-A+-success?style=for-the-badge" alt="A+">
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
+  <img src="https://img.shields.io/badge/Stable_Baselines3-000000?style=flat" alt="Stable-Baselines3">
+  <img src="https://img.shields.io/badge/Gymnasium_Box2D-0066CC?style=flat" alt="Gymnasium Box2D">
+  <img src="https://img.shields.io/badge/PyGame-006400?logo=pygame&logoColor=white" alt="PyGame">
+  <img src="https://img.shields.io/badge/steps-20M-lightgrey" alt="20M steps">
+</p>
+<p align="center">
+  Training a bipedal agent to clear randomized hardcore terrain — across 8 training phases with failure analysis, evaluation methodology, and targeted fine-tuning.
+</p>
 
 ![demo](demo.gif)
 
