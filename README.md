@@ -1,5 +1,5 @@
-# 🦾 Training a Bipedal Agent with PPO on Hardcore Terrain
-<h1 align="center">
+<h1 align="center">🦾 Training a Bipedal Agent with PPO on Hardcore Terrain</h1>
+
 <p align="center">
   <img src="https://img.shields.io/badge/Algorithm-PPO-0066CC?style=for-the-badge" alt="PPO">
   <img src="https://img.shields.io/badge/Best_Episode-292.3%2F300-success?style=for-the-badge" alt="Best 292.3">
@@ -16,6 +16,15 @@
 <p align="center">
   Training a bipedal agent to clear randomized hardcore terrain — across 8 training phases with failure analysis, evaluation methodology, and targeted fine-tuning.
 </p>
+
+<p align="center">
+  <img src="demo.gif" alt="demo" width="600">
+</p>
+<p align="center">
+  <sub>Final model (Phase 8) · seed 103335 · score 289/300 · 1.75× speed</sub>
+</p>
+
+<br>
 
 ![demo](demo.gif)
 
