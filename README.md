@@ -24,11 +24,6 @@
   <sub>Final model (Phase 8) · seed 103335 · score 289/300 · 1.75× speed</sub>
 </p>
 
-<br>
-
-![demo](demo.gif)
-
-<sub>Final model (Phase 8) · seed 103335 · score 289/300 · 1.75× speed</sub>
 
 <br>
 
